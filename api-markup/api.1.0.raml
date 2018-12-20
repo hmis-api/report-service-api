@@ -42,8 +42,6 @@ types:
         type: boolean
   post:
     description: Create a report.
-   Example url :
-   hmis-report-service/rest/reports = Add a report
     body:
       application/json:
         type: report_id
@@ -52,7 +50,7 @@ types:
       '200':
         body:
           application/json:
-            example: !include report_id_example.json
+            example: !include report_ids_example.json
       '401':
         body:
           application/json:

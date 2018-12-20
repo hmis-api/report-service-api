@@ -15,20 +15,12 @@
       "id": "http://jsonschema.net/reportLevel",
       "type": "string"
     },
-    "projectGroupCode": {
-      "id": "http://jsonschema.net/projectGroupCode",
-      "type": "string"
-    },
-    "status": {
-      "id": "http://jsonschema.net/status",
+    "startDate": {
+      "id": "http://jsonschema.net/startDate",
       "type": "string"
     },
     "dateCreated": {
-      "id": "http://jsonschema.net/dateCreated",
-      "type": "string"
-    },
-    "dateUpdated": {
-      "id": "http://jsonschema.net/dateUpdated",
+      "id": "http://jsonschema.net/endDate",
       "type": "string"
     }
   },
@@ -36,9 +28,7 @@
     "name",
     "reportType",
     "reportLevel",
-    "projectGroupCode",
-    "status",
-    "dateCreated",
-    "dateUpdated"
+    "startDate",
+    "endDate"
   ]
 }

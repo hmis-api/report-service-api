@@ -1,13 +1,11 @@
-{
-  "reportConfig":
-{
+"reportConfig":{
   "name": "abc-123",
-  "status":"ACTIVE",
-  "startDate" :"1459517834983",
-  "reportType" : "APR",
+  "reportType" :"APR",
   "reportLevel" : "PROJECT",
-  "projectIds" : [
-    "ksasd"
-  ]
-}
+  "startDate" :"1459517834983",
+  "endDate" :"1459517834983",
+  "projectIds" : {
+    "projectId" :"asdfasdf",
+    "project:Name" :"Name of the project"
+  }
 }
