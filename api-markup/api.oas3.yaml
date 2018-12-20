@@ -15,7 +15,7 @@ paths:
               schema:
                 type: object
       description: >
-       It creates request a report belonging to a project group by providing
+       It creates a report belonging to a project group by providing
         1) Name
         2) reportLevel
         3) reportType
@@ -48,6 +48,25 @@ paths:
               schema:
                 type: object
       description: To get all the reports under logged in your project group.
+      content:
+            application/json:
+              example:
+                ReportConfigs:
+                  pagination:
+                    from: 0
+                    returned: 3
+                    total: 30
+                    maximum: 30
+                    sort: {}
+                  reportConfigs:
+                    - id: e7f87b3b-9282-4031-af3f-34bebc2c6cbf
+                      name: 'First Name                                        '
+                      reportLevel: 'PROJECT'
+                      reportType: 'APR'
+                      startDate: '01/01/2018'
+                      endDate: '01/01/2019'
+                      status: 'COMPLETED'
+                      emailSent : true
       operationId: GET_reports
       parameters:
         - name: Authorization
