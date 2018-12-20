@@ -42,13 +42,8 @@ paths:
     get:
       responses:
         '200':
-          description: ''
+          description: OK – Everything is working.
           content:
-            application/json:
-              schema:
-                type: object
-      description: To get all the reports under logged in your project group.
-      content:
             application/json:
               example:
                 ReportConfigs:
@@ -60,13 +55,15 @@ paths:
                     sort: {}
                   reportConfigs:
                     - id: e7f87b3b-9282-4031-af3f-34bebc2c6cbf
-                      name: 'First Name                                        '
+                      name: 'First Name'
                       reportLevel: 'PROJECT'
                       reportType: 'APR'
                       startDate: '01/01/2018'
                       endDate: '01/01/2019'
                       status: 'COMPLETED'
                       emailSent : true
+      description: To get all the reports under logged in your project group.
+
       operationId: GET_reports
       parameters:
         - name: Authorization
