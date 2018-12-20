@@ -1,0 +1,13 @@
+{
+  "reportConfig":
+{
+  "name": "abc-123",
+  "status":"ACTIVE",
+  "startDate" :"1459517834983",
+  "reportType" : "APR",
+  "reportLevel" : "PROJECT",
+  "projectIds" : {
+   "projectId": "16e731db-cba3-4c2b-bd09-007444d95f8a", "projectName": "Emergency Shelter -Test project"
+ }
+}
+}

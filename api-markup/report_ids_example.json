@@ -1,0 +1,18 @@
+"reportConfig": {
+"name": "abc",
+"status": "COMPLETED",
+"projectGroupCode": "CP0244",
+"reportType": "APR",
+"reportLevel": "PROJECT",
+"emailSent": true,
+"startDate": 1459499834983,
+"id": 2,
+"projectIds": [
+  {
+"projectId": "ksasd"
+}
+],
+"dateCreated": "2018-12-15",
+"dateUpdated": "2018-12-15"
+}
+}

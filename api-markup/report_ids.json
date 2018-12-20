@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://jsonschema.net",
+  "type": "object",
+  "properties": {
+    "reports": {
+      "id": "http://jsonschema.net/id",
+      "type": "string"
+    },
+    "name": {
+      "id": "http://jsonschema.net/name",
+      "type": "string"
+    },
+    "reportType": {
+      "id": "http://jsonschema.net/reportType",
+      "type": "string"
+    },
+    "reportLevel": {
+      "id": "http://jsonschema.net/reportLevel",
+      "type": "string"
+    },
+    "projectGroupCode": {
+      "id": "http://jsonschema.net/projectGroupCode",
+      "type": "string"
+    },
+    "status": {
+      "id": "http://jsonschema.net/status",
+      "type": "string"
+    },
+    "dateCreated": {
+      "id": "http://jsonschema.net/dateCreated",
+      "type": "string"
+    },
+    "dateUpdated": {
+      "id": "http://jsonschema.net/dateUpdated",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "reportType",
+    "reportLevel",
+    "projectGroupCode",
+    "status",
+    "dateCreated",
+    "dateUpdated"
+  ]
+}
