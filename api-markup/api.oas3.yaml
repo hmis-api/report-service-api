@@ -9,13 +9,22 @@ paths:
     post:
       responses:
         '200':
-          description: ''
+          description: OK – Everything is working.
           content:
             application/json:
-              schema:
-                type: object
-      description: >
-       It creates a report belonging to a project group by providing
+              example:
+                reportConfig:
+                      name: 'First Name'
+                      reportLevel: 'PROJECT'
+                      reportType: 'APR'
+                      startDate: '01/01/2018'
+                      endDate: '01/01/2019'
+                      status: 'COMPLETED'
+                      projectIds:
+                        projectId : abc
+
+      description:
+       It creates request a report belonging to a project group by providing
         1) Name
         2) reportLevel
         3) reportType
@@ -58,10 +67,12 @@ paths:
                       name: 'First Name'
                       reportLevel: 'PROJECT'
                       reportType: 'APR'
+                      emailSent: true
+                      dateCreated:  '01/01/2019'
+                      dateUpdasted: '01/01/2019'
                       startDate: '01/01/2018'
                       endDate: '01/01/2019'
                       status: 'COMPLETED'
-                      emailSent : true
       description: To get all the reports under logged in your project group.
 
       operationId: GET_reports
@@ -94,12 +105,21 @@ paths:
       put:
         responses:
           '200':
-            description: ''
+            description: OK – Everything is working.
             content:
               application/json:
-                schema:
-                  type: object
-        description: >
+               example:
+                  reportConfig:
+                      name: 'First Name'
+                      id: 'reportid'
+                      reportLevel: 'PROJECT'
+                      reportType: 'APR'
+                      startDate: '01/01/2018'
+                      endDate: '01/01/2019'
+                      status: 'COMPLETED'
+                      projectIds:
+                        projectId : abc
+        description:
          Update a report by id.
 
           Provide report id as path variable for upatading non loggedin user. If
@@ -108,14 +128,26 @@ paths:
       get:
         responses:
           '200':
-            description: |
-              Successfully retrieved resource(s)
+            description: OK – Everything is working.
             content:
               application/json:
-                schema:
-                  type: object
+               example:
+                  reportConfig:
+                      name: 'First Name'
+                      id: 'reportid'
+                      reportLevel: 'PROJECT'
+                      reportType: 'APR'
+                      projectGroupCode: 'PRGCODE'
+                      emailSent : true
+                      dateCreated  : '01/01/2019'
+                      dateUpdated : '01/01/2019'
+                      startDate: '01/01/2018'
+                      endDate: '01/01/2019'
+                      status: 'COMPLETED'
+                      projectIds:
+                        projectId : abc
           '403':
-            description: ''
+            description: 'No report config found with this id'
             content:
               application/json:
                 schema:
