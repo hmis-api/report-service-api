@@ -68,7 +68,7 @@ paths:
                       - id: e7f87b3b-9282-4031-af3f-34bebc2c6cbf
                         name: 'First Name'
                         reportLevel: 'PROJECT'
-                      reportType: 'APR'
+                        reportType: 'APR'
                         emailSent: true
                         dateCreated:  '01/01/2019'
                         dateUpdasted: '01/01/2019'
