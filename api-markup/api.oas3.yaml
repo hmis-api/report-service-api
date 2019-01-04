@@ -140,6 +140,7 @@ paths:
 
           Provide report id as path variable for upatading non loggedin user. If
           need to update logged in user send self as report id.
+          You can only update name,startDate,endDate,reportType and reportLevel.
         requestBody:
           content:
             application/json:
@@ -147,9 +148,10 @@ paths:
                 example:
                     reportConfig:
                         name: 'First Name'
+                        id: 'reportid'
                         reportLevel: 'PROJECT'
                         reportType: 'APR'
-                        startDate: '01/01/2018'
+                        startDate: '01/05/2018'
                         endDate: '01/01/2019'
                         projectIds:
                           projectId : abc
@@ -207,7 +209,7 @@ paths:
         in: path
         required: true
         schema:
-          type: string
+          type: int
 components:
   schemas: {}
   responses: {}
