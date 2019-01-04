@@ -12,8 +12,9 @@ paths:
           description: OK – Everything is working.
           content:
             application/json:
-              example:
-                reportConfig:
+              schema:
+                example:
+                  reportConfig:
                       name: 'First Name'
                       reportLevel: 'PROJECT'
                       reportType: 'APR'
@@ -54,27 +55,27 @@ paths:
           description: OK – Everything is working.
           content:
             application/json:
-              example:
-                ReportConfigs:
-                  pagination:
-                    from: 0
-                    returned: 3
-                    total: 30
-                    maximum: 30
-                    sort: {}
-                  reportConfigs:
-                    - id: e7f87b3b-9282-4031-af3f-34bebc2c6cbf
-                      name: 'First Name'
-                      reportLevel: 'PROJECT'
+              schema:
+                example:
+                  ReportConfigs:
+                    pagination:
+                      from: 0
+                      returned: 3
+                      total: 30
+                      maximum: 30
+                      sort: {}
+                    reportConfigs:
+                      - id: e7f87b3b-9282-4031-af3f-34bebc2c6cbf
+                        name: 'First Name'
+                        reportLevel: 'PROJECT'
                       reportType: 'APR'
-                      emailSent: true
-                      dateCreated:  '01/01/2019'
-                      dateUpdasted: '01/01/2019'
-                      startDate: '01/01/2018'
-                      endDate: '01/01/2019'
-                      status: 'COMPLETED'
+                        emailSent: true
+                        dateCreated:  '01/01/2019'
+                        dateUpdasted: '01/01/2019'
+                        startDate: '01/01/2018'
+                        endDate: '01/01/2019'
+                        status: 'COMPLETED'
       description: To get all the reports under logged in your project group.
-
       operationId: GET_reports
       parameters:
         - name: Authorization
