@@ -18,6 +18,7 @@ paths:
                       name: 'First Name'
                       reportLevel: 'PROJECT'
                       reportType: 'APR'
+                      id: 'uuid'
                       startDate: '01/01/2018'
                       endDate: '01/01/2019'
                       status: 'COMPLETED'
@@ -33,6 +34,19 @@ paths:
         5) endDate
         6) projectIds
         The user must have "CREATE_REPORT_CONFIG" permission to use this API
+      requestBody:
+        content:
+          application/json:
+            schema:
+              example:
+                  reportConfig:
+                      name: 'First Name'
+                      reportLevel: 'PROJECT'
+                      reportType: 'APR'
+                      startDate: '01/01/2018'
+                      endDate: '01/01/2019'
+                      projectIds:
+                        projectId : abc
       operationId: POST_reports
       parameters:
         - name: Authorization
@@ -126,6 +140,19 @@ paths:
 
           Provide report id as path variable for upatading non loggedin user. If
           need to update logged in user send self as report id.
+        requestBody:
+          content:
+            application/json:
+              schema:
+                example:
+                    reportConfig:
+                        name: 'First Name'
+                        reportLevel: 'PROJECT'
+                        reportType: 'APR'
+                        startDate: '01/01/2018'
+                        endDate: '01/01/2019'
+                        projectIds:
+                          projectId : abc
         operationId: PUT_reports-reportid
       get:
         responses:
