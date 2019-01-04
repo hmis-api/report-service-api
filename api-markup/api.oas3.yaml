@@ -109,8 +109,9 @@ paths:
             description: OK – Everything is working.
             content:
               application/json:
-               example:
-                  reportConfig:
+                schema:
+                  example:
+                    reportConfig:
                       name: 'First Name'
                       id: 'reportid'
                       reportLevel: 'PROJECT'
@@ -132,8 +133,9 @@ paths:
             description: OK – Everything is working.
             content:
               application/json:
-               example:
-                  reportConfig:
+                schema:
+                  example:
+                    reportConfig:
                       name: 'First Name'
                       id: 'reportid'
                       reportLevel: 'PROJECT'
