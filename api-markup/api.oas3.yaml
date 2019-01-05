@@ -137,21 +137,6 @@ paths:
             content:
               application/json:
                 schema:
-                  properties:
-                    id:
-                      type: int
-                    name:
-                      type: string
-                    reportLevel:
-                      type: string
-                    reportType:
-                      type: string
-                    startDate:
-                      type: date
-                    endDate:
-                      type: date
-                    projectId:
-                      type: string
                   example:
                     reportConfig:
                       name: 'First Name'
@@ -173,6 +158,21 @@ paths:
           content:
             application/json:
               schema:
+                properties:
+                  id:
+                    type: int
+                  name:
+                    type: string
+                  reportLevel:
+                    type: string
+                  reportType:
+                    type: string
+                  startDate:
+                    type: date
+                  endDate:
+                    type: date
+                  projectId:
+                    type: string
                 example:
                     reportConfig:
                         name: 'First Name'
