@@ -238,7 +238,7 @@ paths:
         required: true
         schema:
           type: int
-    '/download/{reportid}/{type}':
+  '/download/{reportid}/{type}':
         get:
           responses:
             '200':
