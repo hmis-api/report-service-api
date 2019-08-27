@@ -245,9 +245,6 @@ paths:
             description: OK – Everything is working.
             content:
               application/force-download:
-                schema:
-                  example:
-
         description:
          Downloads a .pdf or .zip(sage csv zip) version of the APR report by providing the reportid and type.
          Type can either pdf or zip.
@@ -267,17 +264,17 @@ paths:
             description: Trusted App id should be provide in this header.
             schema:
               type: string
-        parameters:
-        - name: reportid
-          in: path
-          required: true
-          schema:
-            type: int
-        - name: type
-          in: path
-          required: true
-          schema:
-            type: string
+      parameters:
+      - name: reportid
+        in: path
+        required: true
+        schema:
+          type: int
+      - name: type
+        in: path
+        required: true
+        schema:
+          type: string
 components:
   schemas: {}
   responses: {}
