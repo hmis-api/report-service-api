@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: HMIS Report Service
-  version: 1.0.0
+  version: 1.0.1
 servers:
   - url: 'https://www.hslynk.com/hmis-report-service/rest'
 paths:
@@ -9,13 +9,24 @@ paths:
     post:
       responses:
         '200':
-          description: ''
+          description: OK – Everything is working.
           content:
             application/json:
               schema:
-                type: object
-      description: >
-       It creates a report belonging to a project group by providing
+                example:
+                  reportConfig:
+                      name: 'First Name'
+                      reportLevel: 'PROJECT'
+                      reportType: 'APR'
+                      id: 'uuid'
+                      startDate: '01/01/2018'
+                      endDate: '01/01/2019'
+                      status: 'COMPLETED'
+                      projectIds:
+                        projectId : abc
+
+      description:
+       It creates request a report belonging to a project group by providing
         1) Name
         2) reportLevel
         3) reportType
@@ -23,6 +34,32 @@ paths:
         5) endDate
         6) projectIds
         The user must have "CREATE_REPORT_CONFIG" permission to use this API
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                name:
+                  type: string
+                reportLevel:
+                  type: string
+                reportType:
+                  type: string
+                startDate:
+                  type: date
+                endDate:
+                  type: date
+                projectId:
+                  type: string
+              example:
+                  reportConfig:
+                      name: 'First Name'
+                      reportLevel: 'PROJECT'
+                      reportType: 'APR'
+                      startDate: '01/01/2018'
+                      endDate: '01/01/2019'
+                      projectIds:
+                        projectId : abc
       operationId: POST_reports
       parameters:
         - name: Authorization
@@ -45,25 +82,27 @@ paths:
           description: OK – Everything is working.
           content:
             application/json:
-              example:
-                ReportConfigs:
-                  pagination:
-                    from: 0
-                    returned: 3
-                    total: 30
-                    maximum: 30
-                    sort: {}
-                  reportConfigs:
-                    - id: e7f87b3b-9282-4031-af3f-34bebc2c6cbf
-                      name: 'First Name'
-                      reportLevel: 'PROJECT'
-                      reportType: 'APR'
-                      startDate: '01/01/2018'
-                      endDate: '01/01/2019'
-                      status: 'COMPLETED'
-                      emailSent : true
+              schema:
+                example:
+                  ReportConfigs:
+                    pagination:
+                      from: 0
+                      returned: 3
+                      total: 30
+                      maximum: 30
+                      sort: {}
+                    reportConfigs:
+                      - id: e7f87b3b-9282-4031-af3f-34bebc2c6cbf
+                        name: 'First Name'
+                        reportLevel: 'PROJECT'
+                        reportType: 'APR'
+                        emailSent: true
+                        dateCreated:  '01/01/2019'
+                        dateUpdasted: '01/01/2019'
+                        startDate: '01/01/2018'
+                        endDate: '01/01/2019'
+                        status: 'COMPLETED'
       description: To get all the reports under logged in your project group.
-
       operationId: GET_reports
       parameters:
         - name: Authorization
@@ -94,28 +133,81 @@ paths:
       put:
         responses:
           '200':
-            description: ''
+            description: OK – Everything is working.
             content:
               application/json:
                 schema:
-                  type: object
-        description: >
+                  example:
+                    reportConfig:
+                      name: 'First Name'
+                      id: 'reportid'
+                      reportLevel: 'PROJECT'
+                      reportType: 'APR'
+                      startDate: '01/01/2018'
+                      endDate: '01/01/2019'
+                      status: 'COMPLETED'
+                      projectIds:
+                        projectId : abc
+        description:
          Update a report by id.
 
           Provide report id as path variable for upatading non loggedin user. If
           need to update logged in user send self as report id.
+          You can only update name,startDate,endDate,reportType and reportLevel.
+        requestBody:
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: int
+                  name:
+                    type: string
+                  reportLevel:
+                    type: string
+                  reportType:
+                    type: string
+                  startDate:
+                    type: date
+                  endDate:
+                    type: date
+                  projectId:
+                    type: string
+                example:
+                    reportConfig:
+                        name: 'First Name'
+                        id: 'reportid'
+                        reportLevel: 'PROJECT'
+                        reportType: 'APR'
+                        startDate: '01/05/2018'
+                        endDate: '01/01/2019'
+                        projectIds:
+                          projectId : abc
         operationId: PUT_reports-reportid
       get:
         responses:
           '200':
-            description: |
-              Successfully retrieved resource(s)
+            description: OK – Everything is working.
             content:
               application/json:
                 schema:
-                  type: object
+                  example:
+                    reportConfig:
+                      name: 'First Name'
+                      id: 'reportid'
+                      reportLevel: 'PROJECT'
+                      reportType: 'APR'
+                      projectGroupCode: 'PRGCODE'
+                      emailSent : true
+                      dateCreated  : '01/01/2019'
+                      dateUpdated : '01/01/2019'
+                      startDate: '01/01/2018'
+                      endDate: '01/01/2019'
+                      status: 'COMPLETED'
+                      projectIds:
+                        projectId : abc
           '403':
-            description: ''
+            description: 'No report config found with this id'
             content:
               application/json:
                 schema:
@@ -142,6 +234,43 @@ paths:
               type: string
       parameters:
       - name: reportid
+        in: path
+        required: true
+        schema:
+          type: int
+  '/download/{reportid}/{type}':
+      get:
+        responses:
+          '200':
+            description: OK – Everything is working.
+            content:
+              application/force-download:
+        description:
+         Downloads a .pdf or .zip(sage csv zip) version of the APR report by providing the reportid and type.
+         Type can either pdf or zip.
+        operationId: GET_download_report-reportid
+        parameters:
+          - name: Authorization
+            in: header
+            required: true
+            description: >-
+              Authorization request header should specify as HMISUserAuth
+              session_token={sessiontokenvalue}.
+            schema:
+              type: string
+          - name: X-HMIS-TrustedApp-Id
+            in: header
+            required: true
+            description: Trusted App id should be provide in this header.
+            schema:
+              type: string
+      parameters:
+      - name: reportid
+        in: path
+        required: true
+        schema:
+          type: int
+      - name: type
         in: path
         required: true
         schema:
