@@ -246,8 +246,8 @@ paths:
             content:
               application/force-download:
         description:
-         Downloads a .pdf or .zip(sage csv zip) version of the APR report by providing the reportid and type.
-         Type can either pdf or zip.
+         Downloads a .zip(sage csv zip) version of the APR report by providing the reportid and type.
+         Type can either zip.
         operationId: GET_download_report-reportid
         parameters:
           - name: Authorization
