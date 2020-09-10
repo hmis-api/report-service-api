@@ -2,6 +2,14 @@ openapi: 3.0.0
 info:
   title: HMIS Report Service
   version: 1.0.1
+  contact:
+    name: API Source
+    email: support@hslynk.com
+    url: https://github.com/hmis-api/report-service-api
+  # Name of the license and a URL to the license description.
+  license:
+    name: Open Source License
+    url: https://github.com/hmis-api/report-service-api/blob/master/LICENSE
 servers:
   - url: 'https://www.hslynk.com/hmis-report-service/rest'
 paths:
